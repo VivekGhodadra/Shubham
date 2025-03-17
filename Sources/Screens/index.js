@@ -1,2 +1,2 @@
-export { Login, Languages } from './Auth';
+export { Login, Languages, Welcome } from './Auth';
 export { Home } from './App';
