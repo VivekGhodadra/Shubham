@@ -13,7 +13,7 @@ export default function Welcome({ navigation }) {
       <RNButton
         title={Strings.Next}
         style={styles.next}
-        onPress={() => navigation.navigate(NavRoutes.Welcome)}
+        onPress={() => navigation.navigate(NavRoutes.Login)}
       />
     </RNContainer>
   );

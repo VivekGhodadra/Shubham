@@ -1,1 +1,1 @@
-export { GANext, GANews } from './Common';
+export { SHInput } from './Common';
