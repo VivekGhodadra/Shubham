@@ -1,2 +1,2 @@
-export { Login, Verify, NewPin, PersonalDetails } from './Auth';
-export { Home, News, Scanner, Profile, Notification } from './App';
+export { Login, Languages } from './Auth';
+export { Home } from './App';

@@ -1,5 +1,6 @@
 const NavRoutes = {
   // Auth...
+  Languages: 'Languages',
   Login: 'Login',
 
   // App...

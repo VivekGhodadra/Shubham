@@ -1,2 +1,3 @@
 import Login from './Login';
-export { Login };
+import Languages from './Languages';
+export { Login, Languages };

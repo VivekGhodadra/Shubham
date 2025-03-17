@@ -2,7 +2,7 @@ const imagePath = '../Assets/Images/';
 const png = '.png';
 
 const Images = {
-  // right: require(imagePath + 'right' + png),
+  languageBg: require(imagePath + 'languageBg' + png),
 };
 
 export default Images;
