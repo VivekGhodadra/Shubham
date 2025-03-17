@@ -4,11 +4,17 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { NavRoutes } from '../../Navigation';
 import { Images, Strings } from '../../Constants';
 import { DummyData } from '../../Utils';
+import { useState } from 'react';
 
 export default function Languages({ navigation }) {
+  const [State, setState] = useState({ selected: null });
+
   return (
     <RNContainer topSafeArea>
-      <RNImage source={Images.languageBg} style={styles.bgImage} />
+      <RNImage
+        source={Images.languageBg}
+        style={StyleSheet.absoluteFillObject}
+      />
 
       <ScrollView>
         <RNText style={styles.title}>
@@ -18,9 +24,18 @@ export default function Languages({ navigation }) {
         <View style={styles.list}>
           {DummyData.languages.map((v, i) => (
             <TouchableOpacity
-              activeOpacity={0.6}
               key={i}
-              style={styles.renders}>
+              activeOpacity={0.6}
+              onPress={() => setState(p => ({ ...p, selected: v }))}
+              style={[
+                styles.renders,
+                {
+                  borderColor:
+                    State.selected?.title === v.title
+                      ? Colors.primary
+                      : Colors.transparent,
+                },
+              ]}>
               <RNText size={FontSize.font20} color={Colors.primary}>
                 {v.title}
               </RNText>
@@ -39,9 +54,6 @@ export default function Languages({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  bgImage: {
-    ...StyleSheet.absoluteFillObject,
-  },
   title: {
     paddingTop: hp(4),
     paddingBottom: hp(6),
@@ -57,13 +69,15 @@ const styles = StyleSheet.create({
   renders: {
     ...RNStyles.center,
     width: wp(35),
-    paddingVertical: hp(3),
+    paddingVertical: hp(2.5),
     marginVertical: hp(1),
     backgroundColor: Colors.languageBg,
+    borderColor: Colors.primary,
+    borderWidth: 2,
   },
   next: {
     alignSelf: 'flex-end',
     width: '35%',
-    marginTop: hp(2),
+    marginTop: hp(4),
   },
 });

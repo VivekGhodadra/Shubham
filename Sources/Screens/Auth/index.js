@@ -1,4 +1,5 @@
-import Login from './Login';
 import Languages from './Languages';
 import Welcome from './Welcome';
-export { Login, Languages, Welcome };
+import Login from './Login';
+import SignUp from './SignUp';
+export { Login, Languages, Welcome, SignUp };

@@ -21,8 +21,8 @@ export default function Welcome({ navigation }) {
 
 const styles = StyleSheet.create({
   image: {
-    width: wp(90),
-    height: wp(90),
+    width: wp(80),
+    height: wp(80),
     alignSelf: 'center',
     marginTop: wp(6),
   },
