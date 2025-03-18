@@ -32,7 +32,10 @@ export default function Login({ navigation }) {
           rightIcon={Images.hide}
         />
 
-        <TouchableOpacity style={styles.forgotPassword}>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={() => navigation.navigate(NavRoutes.ForgotPassword)}
+          style={styles.forgotPassword}>
           <RNText family={FontFamily.SemiBold} size={FontSize.font15}>
             {'Forgot Password'}
           </RNText>
