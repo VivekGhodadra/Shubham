@@ -103,7 +103,6 @@ const useStyles = () => {
     },
     renderContainer: {
       width: '20%',
-      // borderWidth: 1,
     },
     button: {
       alignItems: 'center',

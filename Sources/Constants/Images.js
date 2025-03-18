@@ -8,6 +8,9 @@ const Images = {
   password: require(imagePath + 'password' + png),
   user: require(imagePath + 'user' + png),
   hide: require(imagePath + 'hide' + png),
+  facebook: require(imagePath + 'facebook' + png),
+  google: require(imagePath + 'google' + png),
+  signup: require(imagePath + 'signup' + png),
 };
 
 export default Images;

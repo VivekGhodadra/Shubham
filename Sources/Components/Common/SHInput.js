@@ -41,8 +41,8 @@ const FLInput = (
 const useStyles = ({ error, disable }) => {
   return StyleSheet.create({
     container: {
-      marginBottom: hp(1),
-      borderWidth: 1,
+      paddingVertical: hp(1.5),
+      marginHorizontal: wp(4),
     },
     inputContainer: {
       ...RNStyles.shadow,
@@ -51,7 +51,6 @@ const useStyles = ({ error, disable }) => {
       paddingHorizontal: wp(4),
       borderRadius: wp(4),
       paddingVertical: hp(1),
-      marginTop: hp(1),
       borderWidth: wp(0.3),
       borderColor: error ? Colors.error : Colors.black,
     },

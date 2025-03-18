@@ -18,8 +18,8 @@ const Routes = () => {
     return (
       <Stack.Navigator screenOptions={NavConfigs.screenOptions}>
         {/* Auth */}
-        <Stack.Screen name={NavRoutes.Login} component={Login} />
         <Stack.Screen name={NavRoutes.Languages} component={Languages} />
+        <Stack.Screen name={NavRoutes.Login} component={Login} />
         <Stack.Screen name={NavRoutes.Welcome} component={Welcome} />
         <Stack.Screen name={NavRoutes.SignUp} component={SignUp} />
 

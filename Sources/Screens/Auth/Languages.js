@@ -72,8 +72,7 @@ const styles = StyleSheet.create({
     paddingVertical: hp(2.5),
     marginVertical: hp(1),
     backgroundColor: Colors.languageBg,
-    borderColor: Colors.primary,
-    borderWidth: 2,
+    borderWidth: wp(0.4),
   },
   next: {
     alignSelf: 'flex-end',
