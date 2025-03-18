@@ -92,14 +92,6 @@ const useStyles = () => {
     footer: {
       paddingBottom: inset.bottom,
     },
-    langContainer: {
-      // borderWidth: 1,
-    },
-    langIcon: {
-      width: wp(5),
-      height: wp(5),
-      marginRight: wp(2),
-    },
   });
 };
 
