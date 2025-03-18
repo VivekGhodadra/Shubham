@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Colors, FontSize, hp, wp } from '../../Theme';
 import { Images } from '../../Constants';
 import { useInset } from '../../Hooks';
-import { RNStyles } from '../../Common';
+import { RNStyles, RNText } from '../../Common';
 
 export default function TabContent({ state, descriptors, navigation }) {
   const styles = useStyles();
@@ -29,111 +29,94 @@ export default function TabContent({ state, descriptors, navigation }) {
 
         const data = [
           { img: Images.tab0, title: 'Home' },
-          { img: Images.tab1, title: 'News' },
-          { img: Images.tab2, title: 'Scanner' },
-          { img: Images.tab3, title: 'Profile' },
-          { img: Images.tab4, title: 'Notification' },
+          { img: Images.tab1, title: 'Scanner' },
+          { img: Images.tab2, title: 'News' },
         ];
 
-        {
-          /* if (index === 2) {
+        if (index === 1) {
           return (
-            <TouchableOpacity
-              key={index}
-              onPress={onPress}
-              activeOpacity={0.6}
-              onLongPress={onLongPress}
-              style={styles.home}>
-              <Image source={Images.tab1} style={styles.homeIcon} />
-            </TouchableOpacity>
+            <View key={index} style={styles.scanners}>
+              <TouchableOpacity
+                onPress={onPress}
+                activeOpacity={0.6}
+                onLongPress={onLongPress}
+                style={styles.scanner}>
+                <Image source={Images.tab1} style={RNStyles.image60} />
+              </TouchableOpacity>
+            </View>
           );
-        } */
         }
 
         return (
-          <View key={index} style={styles.renderContainer}>
-            <TouchableOpacity
-              accessibilityRole={'button'}
-              accessibilityState={isFocused ? { selected: true } : {}}
-              accessibilityLabel={options.tabBarAccessibilityLabel}
-              testID={options.tabBarTestID}
-              onPress={onPress}
-              activeOpacity={0.6}
-              onLongPress={onLongPress}
-              style={[styles.button]}>
-              <Image
-                source={data[index].img}
-                resizeMode={'contain'}
-                style={[
-                  styles.icons,
-                  {
-                    tintColor: isFocused ? Colors.black : Colors.black + '99',
-                  },
-                ]}
-              />
-              <Text
-                style={styles.text}
-                color={isFocused ? Colors.black : Colors.black + '99'}>
-                {data[index].title}
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            key={index}
+            accessibilityRole={'button'}
+            accessibilityState={isFocused ? { selected: true } : {}}
+            accessibilityLabel={options.tabBarAccessibilityLabel}
+            testID={options.tabBarTestID}
+            onPress={onPress}
+            activeOpacity={0.6}
+            onLongPress={onLongPress}
+            style={[styles.button]}>
+            <Image
+              source={data[index].img}
+              resizeMode={'contain'}
+              style={[
+                styles.icons,
+                {
+                  tintColor: isFocused ? Colors.focused : Colors.white,
+                },
+              ]}
+            />
+            <RNText
+              size={FontSize.font12}
+              color={isFocused ? Colors.focused : Colors.white}>
+              {data[index].title}
+            </RNText>
+          </TouchableOpacity>
         );
       })}
     </View>
   );
 }
 
-const size = { icon: wp(5), home: wp(12) };
+const size = { icon: wp(7), home: wp(20) };
 const useStyles = () => {
   const inset = useInset();
 
   return StyleSheet.create({
-    container: {
-      // backgroundColor: Colors.white,
-    },
     content: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      paddingVertical: hp(1),
-      paddingHorizontal: wp(2),
-      paddingBottom: inset.bottom + hp(inset.bottom > 0 ? 0 : 1),
-      backgroundColor: Colors.white,
-    },
-    renderContainer: {
-      width: '20%',
+      ...RNStyles.flexRowBetween,
+      paddingHorizontal: wp(4),
+      paddingBottom: inset.bottom,
+      backgroundColor: Colors.primary,
     },
     button: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 100,
-      paddingVertical: hp(1.2),
+      ...RNStyles.center,
+      paddingVertical: hp(1),
+      width: '35%',
     },
     icons: {
       width: size.icon,
       height: size.icon,
       marginBottom: hp(0.5),
     },
-    text: {
-      fontSize: FontSize.font10,
-      paddingLeft: wp(1),
-    },
-    home: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'absolute',
+    scanners: {
+      ...RNStyles.center,
       width: size.home,
       height: size.home,
-      backgroundColor: Colors.primary,
+      backgroundColor: Colors.white,
       zIndex: 1,
-      top: -hp(3),
-      left: wp(42.5),
+      position: 'absolute',
+      top: -hp(5),
+      left: wp(40),
       borderRadius: 100,
     },
-    homeIcon: {
-      ...RNStyles.image60,
-      tintColor: Colors.white,
+    scanner: {
+      ...RNStyles.image80,
+      ...RNStyles.center,
+      backgroundColor: Colors.primary,
+      borderRadius: 100,
     },
   });
 };

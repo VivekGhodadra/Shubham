@@ -16,6 +16,9 @@ const Images = {
   lock: require(imagePath + 'lock' + png),
   tick: require(imagePath + 'tick' + png),
   untick: require(imagePath + 'untick' + png),
+  tab0: require(imagePath + 'tab0' + png),
+  tab1: require(imagePath + 'tab1' + png),
+  tab2: require(imagePath + 'tab2' + png),
 };
 
 export default Images;

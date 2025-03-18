@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavConfigs, NavRoutes } from './index';
 import {
   Login,
-  Home,
   Languages,
   Welcome,
   SignUp,
@@ -12,6 +11,7 @@ import {
   ResetPassword,
 } from '../Screens';
 import SplashScreen from 'react-native-splash-screen';
+import Tabs from './Tabs';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +25,9 @@ const Routes = () => {
   const Screens = useCallback(() => {
     return (
       <Stack.Navigator screenOptions={NavConfigs.screenOptions}>
+        {/* App */}
+        <Stack.Screen name={NavRoutes.Home} component={Tabs} />
+
         {/* Auth */}
         <Stack.Screen name={NavRoutes.Languages} component={Languages} />
         <Stack.Screen name={NavRoutes.Welcome} component={Welcome} />
@@ -38,9 +41,6 @@ const Routes = () => {
           name={NavRoutes.ResetPassword}
           component={ResetPassword}
         />
-
-        {/* App */}
-        <Stack.Screen name={NavRoutes.Home} component={Home} />
       </Stack.Navigator>
     );
   }, []);

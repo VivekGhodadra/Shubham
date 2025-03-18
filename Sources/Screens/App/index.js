@@ -1,2 +1,4 @@
 import Home from './Home';
-export { Home };
+import Scanner from './Scanner';
+import News from './News';
+export { Home, Scanner, News };

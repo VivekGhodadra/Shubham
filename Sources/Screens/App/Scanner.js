@@ -1,10 +1,10 @@
 import { StyleSheet, View } from 'react-native';
 import { RNContainer, RNText } from '../../Common';
 
-export default function Home() {
+export default function Scanner() {
   return (
     <RNContainer>
-      <RNText>{'Home'}</RNText>
+      <RNText>{'Scanner'}</RNText>
     </RNContainer>
   );
 }

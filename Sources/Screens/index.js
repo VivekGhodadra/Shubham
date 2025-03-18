@@ -6,4 +6,4 @@ export {
   ForgotPassword,
   ResetPassword,
 } from './Auth';
-export { Home } from './App';
+export { Home, Scanner, News } from './App';
