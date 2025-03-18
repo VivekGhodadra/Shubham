@@ -10,8 +10,9 @@ import {
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Images } from '../../Constants';
 import { SHInput } from '../../Components';
+import { NavRoutes } from '../../Navigation';
 
-export default function Login() {
+export default function Login({ navigation }) {
   return (
     <RNContainer topSafeArea style={RNStyles.container}>
       <RNScrollView>
@@ -40,11 +41,13 @@ export default function Login() {
         <RNButton title={'Log In'} />
 
         <View style={styles.dontHave}>
-          <RNText>{"Don't have an account? "}</RNText>
-          <TouchableOpacity>
+          <RNText size={FontSize.font14}>{"Don't have an account? "}</RNText>
+          <TouchableOpacity
+            activeOpacity={0.6}
+            onPress={() => navigation.replace(NavRoutes.SignUp)}>
             <RNText
               family={FontFamily.SemiBold}
-              size={FontSize.font15}
+              size={FontSize.font14}
               color={Colors.primary}>
               {'Sign Up'}
             </RNText>
