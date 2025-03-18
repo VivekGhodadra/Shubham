@@ -8,7 +8,10 @@ const NavRoutes = {
   ResetPassword: 'Reset Password',
 
   // App...
+  Tabs: 'Tabs',
   Home: 'Home',
+  Scanner: 'Scanner',
+  News: 'News',
 };
 
 export default NavRoutes;
