@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Scanner, News, Profile, Notification } from '../../Screens';
+import { Home, Scanner, News } from '../../Screens';
 import NavRoutes from '../NavRoutes';
 import TabBar from './TabBar';
 
@@ -11,10 +11,8 @@ export default function Tabs() {
       tabBar={p => <TabBar {...p} />}
       screenOptions={{ headerShown: false }}>
       <Tab.Screen name={NavRoutes.Tabs} component={Home} />
-      <Tab.Screen name={NavRoutes.News} component={News} />
       <Tab.Screen name={NavRoutes.Scanner} component={Scanner} />
-      <Tab.Screen name={NavRoutes.Profile} component={Profile} />
-      <Tab.Screen name={NavRoutes.Notification} component={Notification} />
+      <Tab.Screen name={NavRoutes.News} component={News} />
     </Tab.Navigator>
   );
 }
