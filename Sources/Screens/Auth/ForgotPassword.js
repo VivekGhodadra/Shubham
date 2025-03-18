@@ -1,5 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import {
   RNButton,
   RNContainer,
@@ -12,9 +11,12 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Images } from '../../Constants';
 import { SHInput } from '../../Components';
 import { OtpInput } from 'react-native-otp-entry';
+import { useTimer } from '../../Hooks';
 import { NavRoutes } from '../../Navigation';
 
-export default function SignUp({ navigation }) {
+export default function ForgotPassword({ navigation }) {
+  const time = useTimer(60);
+
   return (
     <RNContainer topSafeArea style={RNStyles.container}>
       <RNScrollView>
@@ -23,10 +25,21 @@ export default function SignUp({ navigation }) {
           pVertical={hp(2)}
           pLeft={wp(6)}
           family={FontFamily.SemiBold}>
-          {'Sign Up'}
+          {'Forgot Password'}
         </RNText>
 
-        <RNImage source={Images.signup} style={styles.image} />
+        <RNImage source={Images.forgotPassword} style={styles.image} />
+
+        <View
+          style={[
+            RNStyles.flexRow,
+            { alignSelf: 'center', paddingVertical: hp(1) },
+          ]}>
+          <RNText>{'Enter OTP send to your '}</RNText>
+          <TouchableOpacity>
+            <RNText color={Colors.primary}>{'Phone Number '}</RNText>
+          </TouchableOpacity>
+        </View>
 
         <SHInput
           placeholder={'Mobile Number'}
@@ -68,32 +81,32 @@ export default function SignUp({ navigation }) {
           }}
         />
 
-        <View style={styles.terms}>
-          <RNText
-            size={FontSize.font14}>{`By Sign Up, You're agree to our `}</RNText>
+        <View
+          style={[
+            RNStyles.flexRow,
+            { alignSelf: 'center', paddingVertical: hp(2) },
+          ]}>
+          <RNText size={FontSize.font12}>{'Code expires in: '}</RNText>
           <TouchableOpacity>
-            <RNText size={FontSize.font14} color={Colors.primary}>
-              {'Terms & Conditions'}
-            </RNText>
-          </TouchableOpacity>
-          <RNText size={FontSize.font14}>{` and `}</RNText>
-          <TouchableOpacity>
-            <RNText size={FontSize.font14} color={Colors.primary}>
-              {'Privacy Policy'}
+            <RNText size={FontSize.font12} color={Colors.primary}>
+              {time}
             </RNText>
           </TouchableOpacity>
         </View>
 
-        <RNButton title={'Sign Up'} />
+        <RNButton
+          title={'Submit'}
+          onPress={() => navigation.navigate(NavRoutes.ResetPassword)}
+        />
 
-        <View style={styles.haveAccount}>
-          <RNText size={FontSize.font14}>{'Already have an account? '}</RNText>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            onPress={() => navigation.replace(NavRoutes.Login)}>
-            <RNText size={FontSize.font14} color={Colors.primary}>
-              {'Log In'}
-            </RNText>
+        <View
+          style={[
+            RNStyles.flexRow,
+            { alignSelf: 'center', paddingVertical: hp(2) },
+          ]}>
+          <RNText>{'Don’t receive the OTP? '}</RNText>
+          <TouchableOpacity>
+            <RNText color={Colors.primary}>{'Resend'}</RNText>
           </TouchableOpacity>
         </View>
       </RNScrollView>
@@ -103,18 +116,8 @@ export default function SignUp({ navigation }) {
 
 const styles = StyleSheet.create({
   image: {
-    width: wp(90),
-    height: wp(80),
+    width: wp(80),
+    height: wp(70),
     alignSelf: 'center',
-  },
-  terms: {
-    ...RNStyles.flexWrapHorizontal,
-    justifyContent: 'center',
-    marginHorizontal: wp(6),
-    paddingVertical: hp(2),
-  },
-  haveAccount: {
-    ...RNStyles.flexRowCenter,
-    paddingVertical: hp(2),
   },
 });

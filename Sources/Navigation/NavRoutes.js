@@ -2,8 +2,10 @@ const NavRoutes = {
   // Auth...
   Languages: 'Languages',
   Welcome: 'Welcome',
-  Login: 'Login',
-  SignUp: 'SignUp',
+  Login: 'Log in',
+  SignUp: 'Sign Up',
+  ForgotPassword: 'Forgot Password',
+  ResetPassword: 'Reset Password',
 
   // App...
   Home: 'Home',

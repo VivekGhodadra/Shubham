@@ -11,6 +11,11 @@ const Images = {
   facebook: require(imagePath + 'facebook' + png),
   google: require(imagePath + 'google' + png),
   signup: require(imagePath + 'signup' + png),
+  forgotPassword: require(imagePath + 'forgotPassword' + png),
+  resetPassword: require(imagePath + 'resetPassword' + png),
+  lock: require(imagePath + 'lock' + png),
+  tick: require(imagePath + 'tick' + png),
+  untick: require(imagePath + 'untick' + png),
 };
 
 export default Images;
