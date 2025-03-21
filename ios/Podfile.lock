@@ -1656,6 +1656,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNPermissions (5.2.6):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (4.9.2):
     - DoubleConversion
     - glog
@@ -1702,6 +1723,12 @@ PODS:
     - ReactCommon/turbomodule/core
     - Yoga
   - SocketRocket (0.7.1)
+  - VisionCamera (4.6.4):
+    - VisionCamera/Core (= 4.6.4)
+    - VisionCamera/React (= 4.6.4)
+  - VisionCamera/Core (4.6.4)
+  - VisionCamera/React (4.6.4):
+    - React-Core
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -1777,7 +1804,9 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - VisionCamera (from `../node_modules/react-native-vision-camera`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -1926,8 +1955,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-masked-view/masked-view"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  VisionCamera:
+    :path: "../node_modules/react-native-vision-camera"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -2002,10 +2035,12 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 4f4de141719fef3490c87a0dd779575c64c0472c
   RNCMaskedView: 18c76ebdf9752bb75652829f99f6c3d1318cc864
   RNGestureHandler: 9b05fab9a0b48fe48c968de7dbb9ca38a2b4f7ab
+  RNPermissions: 2ad65283d115efd08e3937a6b5756e17518a3b10
   RNScreens: 9a887b38fbb9c207f0d4e9694037c91e4fd6b248
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
+  VisionCamera: b5c2b3c45e641102902a5194af11dc532805221e
   Yoga: afd04ff05ebe0121a00c468a8a3c8080221cb14c
 
-PODFILE CHECKSUM: 1e216fee5805024b0a09841ce269dfb88aa5181e
+PODFILE CHECKSUM: 18e08fb9d12cbb62c3204140cec921bf71159079
 
 COCOAPODS: 1.15.2
