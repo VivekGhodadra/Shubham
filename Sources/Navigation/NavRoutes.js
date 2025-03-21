@@ -12,6 +12,7 @@ const NavRoutes = {
   Home: 'Home',
   Scanner: 'Scanner',
   News: 'News',
+  Settings: 'Settings',
 };
 
 export default NavRoutes;

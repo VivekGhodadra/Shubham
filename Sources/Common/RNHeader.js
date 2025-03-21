@@ -70,8 +70,8 @@ const useStyles = () => {
       paddingHorizontal: wp(4),
       paddingTop: inset.top + hp(1.5),
       paddingVertical: hp(1.5),
-      borderBottomWidth: wp(0.3),
-      borderBottomColor: Colors.black + '20',
+      // borderBottomWidth: wp(0.3),
+      // borderBottomColor: Colors.black + '20',
     },
     icon: {
       ...RNStyles.center,
@@ -85,9 +85,9 @@ const useStyles = () => {
       paddingHorizontal: hp(1),
       marginHorizontal: hp(1),
       fontSize: FontSize.font20,
-      fontFamily: FontFamily.Medium,
+      fontFamily: FontFamily.SemiBold,
       textAlign: 'center',
-      // color: Colors.primary,
+      color: Colors.primary,
     },
     footer: {
       paddingBottom: inset.bottom,
