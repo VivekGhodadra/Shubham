@@ -29,6 +29,7 @@ const Images = {
   setting_6: require(imagePath + 'setting_6' + png),
   setting_7: require(imagePath + 'setting_7' + png),
   setting_8: require(imagePath + 'setting_8' + png),
+  qr: require(imagePath + 'qr' + png),
 };
 
 export default Images;
