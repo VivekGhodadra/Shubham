@@ -4,27 +4,27 @@ import {
   ImageBackground,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { Images } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, normalize, wp } from '../../Theme';
-import { useNavigation } from '@react-navigation/native';
 import { RNStyles, RNText } from '../../Common';
 import { ProductTabs } from '../../Components/Common';
+import { SendInquiry } from '../../Components';
 
-const ProductDetails = () => {
-  const navigation = useNavigation();
+const ProductDetails = ({ navigation }) => {
   const [Quantity, setQuantity] = useState(0);
+  const [openInquiry, setopenInquiry] = useState(false);
+
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
         source={require('../../Assets/Images/ProductImage.png')}
         style={styles.bannerImage}>
-        <View>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={Images.rightArrow} style={styles.arrowIcon} />
-        </View>
+        </TouchableOpacity>
       </ImageBackground>
       <View style={{ flex: 1, backgroundColor: Colors.black }}>
         <View style={styles.detailsContainer}>
@@ -101,12 +101,19 @@ const ProductDetails = () => {
               <RNText style={styles.buyText}>Add to Cart</RNText>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.buyButton}>
+            <TouchableOpacity
+              onPress={() => setopenInquiry(true)}
+              style={styles.buyButton}>
               <RNText style={styles.buyText}>Send Inquiry</RNText>
             </TouchableOpacity>
           </View>
         </View>
       </View>
+
+      <SendInquiry
+        visible={openInquiry}
+        onClose={() => setopenInquiry(false)}
+      />
     </View>
   );
 };

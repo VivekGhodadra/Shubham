@@ -110,13 +110,13 @@ const styles = StyleSheet.create({
   coinIcon: { width: 20, height: 20 },
   coinText: { marginLeft: 5 },
   searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    ...RNStyles.flexRow,
     marginHorizontal: wp(4),
     paddingHorizontal: wp(3),
     borderWidth: 1,
     borderColor: Colors.primary,
     borderRadius: normalize(50),
+    paddingVertical: hp(1),
   },
   searchInput: {
     flex: 1,
