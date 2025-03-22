@@ -3,5 +3,5 @@ import Scanner from './Scanner';
 import News from './News';
 import ProductDetails from './ProductDetails';
 import Settings from './Settings';
-export { Home, Scanner, News, Settings, ProductDetails };
-
+import Categories from './Categories';
+export { Home, Scanner, News, Settings, ProductDetails, Categories };

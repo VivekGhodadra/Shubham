@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import { Images } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, normalize, wp } from '../../Theme';
+import { useNavigation } from '@react-navigation/native';
+import { RNContainer, RNStyles, RNText } from '../../Common';
 import { RNStyles, RNText } from '../../Common';
 import { ProductTabs } from '../../Components/Common';
 import { SendInquiry } from '../../Components';
@@ -18,7 +20,7 @@ const ProductDetails = ({ navigation }) => {
   const [openInquiry, setopenInquiry] = useState(false);
 
   return (
-    <View style={{ flex: 1 }}>
+    <RNContainer bottomSafeArea={true}>
       <ImageBackground
         source={require('../../Assets/Images/ProductImage.png')}
         style={styles.bannerImage}>
@@ -62,20 +64,14 @@ const ProductDetails = ({ navigation }) => {
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={{ width: wp(10) }}
-                  onPress={() => setQuantity(Quantity - 1)}>
+                  onPress={() => setQuantity(Quantity + 1)}>
                   <RNText style={[styles.actionText]}>{'-'}</RNText>
                 </TouchableOpacity>
                 <View style={styles.devider} />
                 <View style={{ width: wp(10) }}>
                   <RNText style={styles.quantityText}>{Quantity}</RNText>
                 </View>
-                <View
-                  style={{
-                    height: hp(4.5),
-                    width: 1,
-                    backgroundColor: Colors.black,
-                  }}
-                />
+                <View style={styles.devider} />
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={{ width: wp(10) }}
@@ -109,12 +105,14 @@ const ProductDetails = ({ navigation }) => {
           </View>
         </View>
       </View>
-
-      <SendInquiry
+  <SendInquiry
         visible={openInquiry}
         onClose={() => setopenInquiry(false)}
       />
-    </View>
+    </RNContainer>
+
+    
+ 
   );
 };
 
@@ -164,11 +162,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   devider: {
-    ...RNStyles.flexRow,
-    borderWidth: 1,
-    marginLeft: wp(3),
-    borderRadius: 12,
     height: hp(4.5),
+    width: 1,
+    backgroundColor: Colors.black,
   },
   btnView: {
     ...RNStyles.flexRow,

@@ -18,6 +18,7 @@ const RNHeader = ({
   back = true,
   onBack,
   right,
+  containtContainerStyle,
 }) => {
   const navigation = useNavigation();
   const styles = useStyles();
@@ -27,7 +28,7 @@ const RNHeader = ({
   };
 
   return (
-    <View style={RNStyles.container}>
+    <View style={[RNStyles.container, containtContainerStyle]}>
       <View style={[styles.Container, containerStyle]}>
         <RNIcon
           icon={back ? Images.back : Images.drawer}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
-import { RNText } from '../../Common';
+import { RNStyles, RNText } from '../../Common';
 
 const CategoryItem = ({ image, name }) => {
   return (
@@ -9,7 +9,9 @@ const CategoryItem = ({ image, name }) => {
       <View style={styles.categoryView}>
         <Image source={image} style={styles.categoryImage} />
       </View>
-      <RNText style={styles.categoriName}>{name}</RNText>
+      <RNText numOfLines={2} style={styles.categoriName}>
+        {name}
+      </RNText>
     </View>
   );
 };
@@ -29,12 +31,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
-    padding: wp(3),
+    padding: wp(1),
     borderColor: Colors.primary,
   },
   categoryImage: {
-    width: wp(15),
-    height: wp(15),
+    ...RNStyles.image100,
     borderRadius: wp(15),
     resizeMode: 'stretch',
   },
