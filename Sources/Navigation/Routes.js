@@ -12,6 +12,7 @@ import {
 } from '../Screens';
 import SplashScreen from 'react-native-splash-screen';
 import Tabs from './Tabs';
+import { ProductDetails } from '../Screens/App';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,10 @@ const Routes = () => {
       <Stack.Navigator screenOptions={NavConfigs.screenOptions}>
         {/* App */}
         <Stack.Screen name={NavRoutes.Home} component={Tabs} />
+        <Stack.Screen
+          name={NavRoutes.ProductDetails}
+          component={ProductDetails}
+        />
 
         {/* Auth */}
         <Stack.Screen name={NavRoutes.Languages} component={Languages} />

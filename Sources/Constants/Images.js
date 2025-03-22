@@ -19,6 +19,13 @@ const Images = {
   tab0: require(imagePath + 'tab0' + png),
   tab1: require(imagePath + 'tab1' + png),
   tab2: require(imagePath + 'tab2' + png),
+
+  bell: require(imagePath + 'bell' + png),
+  money: require(imagePath + 'money' + png),
+  rightArrow: require(imagePath + 'rightArrow' + png),
+  search: require(imagePath + 'search' + png),
+  mic: require(imagePath + 'mic' + png),
+  npk12: require(imagePath + 'NPK12' + png),
 };
 
 export default Images;
