@@ -54,9 +54,6 @@ const ViewMoreList = () => (
   </View>
 );
 
-
-
-
 export default function Home() {
   const { requestPermissions } = usePermissions();
 
@@ -113,13 +110,13 @@ const styles = StyleSheet.create({
   coinIcon: { width: 20, height: 20 },
   coinText: { marginLeft: 5 },
   searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    ...RNStyles.flexRow,
     marginHorizontal: wp(4),
     paddingHorizontal: wp(3),
     borderWidth: 1,
     borderColor: Colors.primary,
     borderRadius: normalize(50),
+    paddingVertical: hp(1),
   },
   searchInput: {
     flex: 1,
@@ -133,8 +130,6 @@ const styles = StyleSheet.create({
     width: normalize(30),
     height: normalize(30),
   },
-
-  //-----------------------------------------------------
   viewList: {
     width: '90%',
     ...RNStyles.flexRowBetween,
