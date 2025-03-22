@@ -9,6 +9,7 @@ const RNScrollView = ({
   safeArea = 'bottom',
   children,
   scrollProps,
+  contentStyles,
 }) => {
   const styles = useStyles();
   const scrollStyles = {
@@ -25,7 +26,7 @@ const RNScrollView = ({
   return (
     <RNKeyboardAvoid>
       <ScrollView
-        contentContainerStyle={contentContainerStyle}
+        contentContainerStyle={{ ...contentContainerStyle, ...contentStyles }}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}
