@@ -1,7 +1,6 @@
-import { StyleSheet, View } from 'react-native';
-import { RNContainer, RNText } from '../../Common';
-import { usePermissions } from '../../Hooks';
 import { useEffect } from 'react';
+import { RNContainer } from '../../Common';
+import { usePermissions } from '../../Hooks';
 
 export default function Home() {
   const { requestPermissions } = usePermissions();
@@ -10,11 +9,5 @@ export default function Home() {
     requestPermissions();
   }, []);
 
-  return (
-    <RNContainer>
-      <RNText>{'Home'}</RNText>
-    </RNContainer>
-  );
+  return <RNContainer></RNContainer>;
 }
-
-const styles = StyleSheet.create({});
