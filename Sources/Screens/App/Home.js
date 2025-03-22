@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   FlatList,
   Image,
@@ -8,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { RNContainer, RNStyles, RNText } from '../../Common';
+import { usePermissions } from '../../Hooks';
 import { Images } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, normalize, wp } from '../../Theme';
 import { CategoryItem, ProductCard } from '../../Components/Common';
@@ -52,7 +54,16 @@ const ViewMoreList = () => (
   </View>
 );
 
+
+
+
 export default function Home() {
+  const { requestPermissions } = usePermissions();
+
+  useEffect(() => {
+    requestPermissions();
+  }, []);
+
   return (
     <RNContainer topSafeArea={true}>
       {/* <Header /> */}

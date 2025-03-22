@@ -9,6 +9,7 @@ import {
   SignUp,
   ForgotPassword,
   ResetPassword,
+  Settings,
 } from '../Screens';
 import SplashScreen from 'react-native-splash-screen';
 import Tabs from './Tabs';
@@ -32,7 +33,7 @@ const Routes = () => {
           name={NavRoutes.ProductDetails}
           component={ProductDetails}
         />
-
+        <Stack.Screen name={NavRoutes.Settings} component={Settings} />
         {/* Auth */}
         <Stack.Screen name={NavRoutes.Languages} component={Languages} />
         <Stack.Screen name={NavRoutes.Welcome} component={Welcome} />

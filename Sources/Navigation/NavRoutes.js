@@ -13,6 +13,7 @@ const NavRoutes = {
   Scanner: 'Scanner',
   News: 'News',
   ProductDetails: 'ProductDetails',
+  Settings: 'Settings',
 };
 
 export default NavRoutes;
