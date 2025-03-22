@@ -6,6 +6,7 @@ const Colors = {
   languageBg: '#E8F9E8',
   focused: '#00FF00',
   bg: '#EDF7ED',
+
 };
 
 export default Colors;
