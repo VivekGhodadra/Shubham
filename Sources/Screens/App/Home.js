@@ -4,60 +4,16 @@ import {
   Image,
   ScrollView,
   StyleSheet,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { RNContainer, RNStyles, RNText } from '../../Common';
 import { usePermissions } from '../../Hooks';
-import { Images } from '../../Constants';
+import { Images, Strings } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, normalize, wp } from '../../Theme';
-import { CategoryItem, ProductCard } from '../../Components/Common';
-
-const Header = () => (
-  <View style={styles.header}>
-    <TouchableOpacity>
-      <Image source={Images.user} style={styles.icon} />
-    </TouchableOpacity>
-    <View style={styles.coinsContainer}>
-      <Image source={Images.money} style={styles.coinIcon} />
-      <RNText style={styles.coinText}>0</RNText>
-    </View>
-    <TouchableOpacity>
-      <Image source={Images.bell} style={styles.icon} />
-    </TouchableOpacity>
-  </View>
-);
-
-const SearchBar = () => (
-  <View style={styles.searchBar}>
-    <Image source={Images.search} style={styles.micIcon} />
-
-    <TextInput
-      placeholder="Search here..."
-      placeholderTextColor={Colors.black + '50'}
-      style={styles.searchInput}
-    />
-    <TouchableOpacity>
-      <Image source={Images.mic} style={styles.micIcon} />
-    </TouchableOpacity>
-  </View>
-);
-
-const ViewMoreList = () => (
-  <View style={styles.viewList}>
-    <RNText style={styles.sectionTitle}>Category</RNText>
-    <TouchableOpacity style={styles.viewAll}>
-      <RNText style={styles.viewText}>View All</RNText>
-      <Image source={Images.rightArrow} style={styles.arrowIcon} />
-    </TouchableOpacity>
-  </View>
-);
-
-
-
-
-export default function Home() {
+import { CategoryItem, ProductCard, SearchBar } from '../../Components/Common';
+import { NavRoutes } from '../../Navigation';
+export default function Home({ navigation }) {
   const { requestPermissions } = usePermissions();
 
   useEffect(() => {
@@ -66,30 +22,32 @@ export default function Home() {
 
   return (
     <RNContainer topSafeArea={true}>
-      {/* <Header /> */}
       <ScrollView>
         <SearchBar />
-        <ViewMoreList />
-
+        <ViewMoreList
+          title={Strings.Category}
+          onPress={() => navigation.navigate(NavRoutes.Categories)}
+        />
         <FlatList
           horizontal
+          showsHorizontalScrollIndicator={false}
           data={categories}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <CategoryItem image={item.image} name={item.name} />
           )}
-          contentContainerStyle={{ paddingHorizontal: wp(4) }}
+          contentContainerStyle={{ marginHorizontal: wp(4) }}
         />
-
-        <ViewMoreList />
-
+        <ViewMoreList
+          title={Strings.Products}
+          onPress={() => navigation.navigate(NavRoutes.Categories)}
+        />
         <View style={styles.productsContainer}>
-          {products.map(product => (
+          {products.map((item, index) => (
             <ProductCard
-              key={product.id}
-              name={product.name}
-              image={product?.image}
-              price={product.price}
+              key={index}
+              item={item}
+              onPress={() => navigation.navigate(NavRoutes.ProductDetails)}
             />
           ))}
         </View>
@@ -98,46 +56,24 @@ export default function Home() {
   );
 }
 
+const ViewMoreList = ({ title, onPress }) => (
+  <View style={styles.viewList}>
+    <RNText style={styles.sectionTitle}>{title}</RNText>
+    <TouchableOpacity style={styles.viewAll} onPress={onPress}>
+      <RNText style={styles.viewText}>View All</RNText>
+      <Image source={Images.rightArrow} style={styles.arrowIcon} />
+    </TouchableOpacity>
+  </View>
+);
+
 const styles = StyleSheet.create({
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10,
-    backgroundColor: '#f8f8f8',
-  },
-  icon: { width: 30, height: 30 },
   coinsContainer: {
     ...RNStyles.flexRowCenter,
   },
 
-  coinIcon: { width: 20, height: 20 },
-  coinText: { marginLeft: 5 },
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginHorizontal: wp(4),
-    paddingHorizontal: wp(3),
-    borderWidth: 1,
-    borderColor: Colors.primary,
-    borderRadius: normalize(50),
-  },
-  searchInput: {
-    flex: 1,
-    marginHorizontal: wp(2),
-    color: Colors.black,
-    fontFamily: FontFamily.Regular,
-    fontSize: FontSize.font16,
-    marginTop: hp(0.5),
-  },
-  micIcon: {
-    width: normalize(30),
-    height: normalize(30),
-  },
-
-  //-----------------------------------------------------
   viewList: {
-    width: '90%',
     ...RNStyles.flexRowBetween,
+    width: '90%',
     alignSelf: 'center',
     marginVertical: hp(2),
   },
@@ -165,11 +101,12 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.SemiBold,
   },
   productsContainer: {
-    width: '90%',
     ...RNStyles.flexRowBetween,
+    width: '90%',
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignSelf: 'center',
+    marginBottom: hp(4),
   },
 });
 
@@ -211,7 +148,7 @@ const products = [
   },
   {
     id: '3',
-    name: 'Roasted Bentonite Granules',
+    name: 'Roasted Bentonite',
     price: 375,
     image: Images.npk12,
   },

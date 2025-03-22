@@ -14,6 +14,7 @@ const NavRoutes = {
   News: 'News',
   ProductDetails: 'ProductDetails',
   Settings: 'Settings',
+  Categories: 'Categories',
 };
 
 export default NavRoutes;

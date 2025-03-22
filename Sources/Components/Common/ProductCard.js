@@ -2,36 +2,25 @@ import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Colors, FontFamily, FontSize, hp, normalize, wp } from '../../Theme';
 import { RNText } from '../../Common';
-import { useNavigation } from '@react-navigation/native';
 
-const ProductCard = ({ name, price, image }) => {
-  const navigation = useNavigation();
+const ProductCard = ({ item, onPress }) => {
   return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate('ProductDetails')}
-      style={styles.productCard}>
+    <TouchableOpacity style={styles.productCard} onPress={onPress}>
       <RNText
         size={FontSize.font12}
         family={FontFamily.Medium}
         pBottom={hp(2)}
         align={'center'}>
-        {name}
+        {item.name}
       </RNText>
-      <Image source={image} style={styles.productImage} />
+      <Image source={item.image} style={styles.productImage} />
 
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginTop: hp(1),
-          paddingHorizontal: wp(1),
-        }}>
+      <View style={styles.priceView}>
         <RNText
           size={FontSize.font12}
           pTop={hp(0.5)}
           family={FontFamily.SemiBold}>
-          ₹{price}
+          ₹{item.price}
         </RNText>
         <TouchableOpacity style={styles.buyButton}>
           <RNText style={styles.buyText}>Buy Now</RNText>
@@ -62,16 +51,24 @@ const styles = StyleSheet.create({
     shadowColor: Colors.black,
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 10,
     },
-    shadowOpacity: 0.5,
-    shadowRadius: normalize(15),
-    elevation: 8,
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 10,
+  },
+  priceView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: hp(1),
+    paddingHorizontal: wp(2),
   },
   buyButton: {
     backgroundColor: Colors.primary,
-    paddingHorizontal: wp(2),
+    paddingHorizontal: wp(4),
     borderRadius: wp(5),
+    paddingVertical: hp(0.3),
   },
   buyText: {
     color: Colors.white,

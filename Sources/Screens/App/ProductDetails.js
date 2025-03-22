@@ -11,20 +11,21 @@ import {
 import { Images } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, normalize, wp } from '../../Theme';
 import { useNavigation } from '@react-navigation/native';
-import { RNStyles, RNText } from '../../Common';
+import { RNContainer, RNStyles, RNText } from '../../Common';
 import { ProductTabs } from '../../Components/Common';
 
 const ProductDetails = () => {
   const navigation = useNavigation();
   const [Quantity, setQuantity] = useState(0);
+
   return (
-    <View style={{ flex: 1 }}>
+    <RNContainer bottomSafeArea={true}>
       <ImageBackground
         source={require('../../Assets/Images/ProductImage.png')}
         style={styles.bannerImage}>
-        <View>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={Images.rightArrow} style={styles.arrowIcon} />
-        </View>
+        </TouchableOpacity>
       </ImageBackground>
       <View style={{ flex: 1, backgroundColor: Colors.black }}>
         <View style={styles.detailsContainer}>
@@ -62,20 +63,14 @@ const ProductDetails = () => {
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={{ width: wp(10) }}
-                  onPress={() => setQuantity(Quantity - 1)}>
+                  onPress={() => setQuantity(Quantity + 1)}>
                   <RNText style={[styles.actionText]}>{'-'}</RNText>
                 </TouchableOpacity>
                 <View style={styles.devider} />
                 <View style={{ width: wp(10) }}>
                   <RNText style={styles.quantityText}>{Quantity}</RNText>
                 </View>
-                <View
-                  style={{
-                    height: hp(4.5),
-                    width: 1,
-                    backgroundColor: Colors.black,
-                  }}
-                />
+                <View style={styles.devider} />
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={{ width: wp(10) }}
@@ -107,7 +102,7 @@ const ProductDetails = () => {
           </View>
         </View>
       </View>
-    </View>
+    </RNContainer>
   );
 };
 
@@ -157,11 +152,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   devider: {
-    ...RNStyles.flexRow,
-    borderWidth: 1,
-    marginLeft: wp(3),
-    borderRadius: 12,
     height: hp(4.5),
+    width: 1,
+    backgroundColor: Colors.black,
   },
   btnView: {
     ...RNStyles.flexRow,
